@@ -43,23 +43,25 @@
   color: var(--brand-gray);
   max-width: 480px;
   line-height: 1.7;
+  text-align: center;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 20px;
 }
 
 .card {
   background: var(--brand-bg);
   border: 1.5px solid var(--brand-border);
   border-radius: var(--radius-lg);
-  padding: 28px 24px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
   gap: 10px;
   transition: box-shadow var(--transition), border-color var(--transition), transform var(--transition);
+  cursor: pointer;
 }
 .card:hover {
   box-shadow: var(--shadow-md);
@@ -73,25 +75,23 @@
   justify-content: space-between;
 }
 
-.emoji { font-size: 32px; }
+.cardEmoji { font-size: 32px; }
 
-.tag {
+.cardTag {
   font-size: 11px;
   font-weight: 700;
-  background: var(--brand-green-light);
-  color: var(--brand-green-dark);
   padding: 3px 10px;
   border-radius: 99px;
 }
 
 .cardName {
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 800;
   color: var(--brand-dark);
 }
 
 .cardDesc {
-  font-size: 14px;
+  font-size: 13px;
   color: var(--brand-gray);
   line-height: 1.65;
   flex: 1;
@@ -102,31 +102,30 @@
   align-items: center;
   justify-content: space-between;
   margin-top: 8px;
+  padding-top: 14px;
+  border-top: 1px solid var(--brand-border);
 }
 
-.price {
+.cardPrice {
   font-size: 14px;
-  font-weight: 700;
-  color: var(--brand-green-dark);
+  font-weight: 800;
+  color: var(--brand-green);
 }
 
-.bookBtn {
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--brand-green);
-  border-bottom: 1.5px solid var(--brand-green);
-  padding-bottom: 1px;
-  transition: color var(--transition), border-color var(--transition);
+.cardArrow {
+  font-size: 18px;
+  color: var(--brand-gray-light);
+  transition: color var(--transition), transform var(--transition);
 }
-.bookBtn:hover {
-  color: var(--brand-green-dark);
-  border-color: var(--brand-green-dark);
+.card:hover .cardArrow {
+  color: var(--brand-green);
+  transform: translateX(3px);
 }
 
 @media (max-width: 900px) {
   .grid { grid-template-columns: repeat(2, 1fr); }
 }
-@media (max-width: 600px) {
+@media (max-width: 560px) {
   .grid { grid-template-columns: 1fr; }
   .section { padding: 64px 16px; }
 }

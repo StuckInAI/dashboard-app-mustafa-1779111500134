@@ -1,18 +1,14 @@
-import { Outlet } from 'react-router-dom';
-import Sidebar from '@/components/layout/Sidebar';
-import Header from '@/components/layout/Header';
+import { ReactNode } from 'react';
 import styles from './Layout.module.css';
 
-export default function Layout() {
+interface LayoutProps {
+  children: ReactNode;
+}
+
+export default function Layout({ children }: LayoutProps) {
   return (
-    <div className={styles.root}>
-      <Sidebar />
-      <div className={styles.main}>
-        <Header />
-        <main className={styles.content}>
-          <Outlet />
-        </main>
-      </div>
+    <div className={styles.layout}>
+      <main className={styles.main}>{children}</main>
     </div>
   );
 }

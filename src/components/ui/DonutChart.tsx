@@ -1,81 +1,54 @@
-import type { ChartDataPoint } from '@/types';
 import styles from './DonutChart.module.css';
 
-type DonutChartProps = {
-  data: ChartDataPoint[];
-};
+interface DonutChartProps {
+  data?: { label: string; value: number; color: string }[];
+  size?: number;
+  thickness?: number;
+}
 
-const COLORS = [
-  'var(--color-accent-blue)',
-  'var(--color-accent-green)',
-  'var(--color-accent-purple)',
-  'var(--color-accent-orange)',
-  'var(--color-accent-red)',
+const defaultData = [
+  { label: 'Applied', value: 40, color: '#3b82f6' },
+  { label: 'Interview', value: 30, color: '#f59e0b' },
+  { label: 'Offer', value: 20, color: '#1dbf73' },
+  { label: 'Rejected', value: 10, color: '#ef4444' },
 ];
 
-export default function DonutChart({ data }: DonutChartProps) {
+export default function DonutChart({ data = defaultData, size = 160, thickness = 30 }: DonutChartProps) {
   const total = data.reduce((sum, d) => sum + d.value, 0);
-
+  const radius = (size - thickness) / 2;
+  const circumference = 2 * Math.PI * radius;
   let cumulative = 0;
-  const segments = data.map((d, i) => {
-    const pct = d.value / total;
-    const start = cumulative;
-    cumulative += pct;
-    return { ...d, pct, start, color: COLORS[i % COLORS.length] };
-  });
-
-  const radius = 60;
-  const cx = 80;
-  const cy = 80;
-  const strokeWidth = 22;
-
-  function describeArc(startPct: number, endPct: number): string {
-    const startAngle = startPct * 2 * Math.PI - Math.PI / 2;
-    const endAngle = endPct * 2 * Math.PI - Math.PI / 2;
-    const x1 = cx + radius * Math.cos(startAngle);
-    const y1 = cy + radius * Math.sin(startAngle);
-    const x2 = cx + radius * Math.cos(endAngle);
-    const y2 = cy + radius * Math.sin(endAngle);
-    const largeArc = endPct - startPct > 0.5 ? 1 : 0;
-    return `M ${x1} ${y1} A ${radius} ${radius} 0 ${largeArc} 1 ${x2} ${y2}`;
-  }
 
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.chart}>
-        <svg viewBox="0 0 160 160" width="160" height="160">
-          <circle
-            cx={cx}
-            cy={cy}
-            r={radius}
-            fill="none"
-            stroke="var(--color-border)"
-            strokeWidth={strokeWidth}
-          />
-          {segments.map((seg, i) => (
-            <path
-              key={i}
-              d={describeArc(seg.start, seg.start + seg.pct)}
+    <div className={styles.wrap}>
+      <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
+        {data.map((d) => {
+          const offset = circumference - (d.value / total) * circumference;
+          const rotation = (cumulative / total) * 360 - 90;
+          cumulative += d.value;
+          return (
+            <circle
+              key={d.label}
+              cx={size / 2}
+              cy={size / 2}
+              r={radius}
               fill="none"
-              stroke={seg.color}
-              strokeWidth={strokeWidth}
-              strokeLinecap="round"
+              stroke={d.color}
+              strokeWidth={thickness}
+              strokeDasharray={`${circumference} ${circumference}`}
+              strokeDashoffset={offset}
+              transform={`rotate(${rotation} ${size / 2} ${size / 2})`}
+              style={{ transition: 'stroke-dashoffset 0.5s ease' }}
             />
-          ))}
-          <text x={cx} y={cy - 6} textAnchor="middle" className={styles.centerTop}>
-            {total}%
-          </text>
-          <text x={cx} y={cx + 12} textAnchor="middle" className={styles.centerBottom}>
-            Total
-          </text>
-        </svg>
-      </div>
+          );
+        })}
+      </svg>
       <div className={styles.legend}>
-        {segments.map((seg, i) => (
-          <div key={i} className={styles.legendItem}>
-            <span className={styles.legendDot} style={{ background: seg.color }} />
-            <span className={styles.legendLabel}>{seg.label}</span>
-            <span className={styles.legendValue}>{seg.value}%</span>
+        {data.map((d) => (
+          <div key={d.label} className={styles.legendItem}>
+            <span className={styles.dot} style={{ background: d.color }} />
+            <span className={styles.legendLabel}>{d.label}</span>
+            <span className={styles.legendVal}>{d.value}%</span>
           </div>
         ))}
       </div>

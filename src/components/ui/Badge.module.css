@@ -1,34 +1,13 @@
 .badge {
-  display: inline-flex;
-  align-items: center;
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
   padding: 3px 10px;
-  border-radius: var(--radius-full);
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-semibold);
-  text-transform: capitalize;
+  border-radius: 99px;
 }
 
-.success {
-  background: rgba(62, 207, 142, 0.12);
-  color: var(--color-accent-green);
-}
-
-.error {
-  background: rgba(247, 95, 95, 0.12);
-  color: var(--color-accent-red);
-}
-
-.warning {
-  background: rgba(247, 156, 79, 0.12);
-  color: var(--color-accent-orange);
-}
-
-.info {
-  background: rgba(79, 142, 247, 0.12);
-  color: var(--color-accent-blue);
-}
-
-.neutral {
-  background: rgba(148, 152, 176, 0.12);
-  color: var(--color-text-secondary);
-}
+.green { background: #e8f8f0; color: #1dbf73; }
+.blue { background: #eff6ff; color: #3b82f6; }
+.red { background: #fef2f2; color: #ef4444; }
+.yellow { background: #fffbeb; color: #d97706; }
+.gray { background: #f1f5f9; color: #64748b; }

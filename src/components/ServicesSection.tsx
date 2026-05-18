@@ -4,44 +4,50 @@ const services = [
   {
     emoji: '🚗',
     name: 'Khaqan GO',
-    desc: 'Affordable everyday rides. Book a comfortable sedan for your daily commute.',
-    price: 'From PKR 200',
+    desc: 'Affordable everyday rides. AC car, professional driver, lowest fares.',
+    price: 'From PKR 280',
     tag: 'Most Popular',
-  },
-  {
-    emoji: '🛵',
-    name: 'Khaqan Bike',
-    desc: 'Beat the traffic on two wheels. Fast, cheap, and always available.',
-    price: 'From PKR 80',
-    tag: 'Fastest',
+    tagColor: '#1dbf73',
   },
   {
     emoji: '🚙',
-    name: 'Khaqan Prime',
-    desc: 'Premium SUVs and luxury sedans for business or special occasions.',
-    price: 'From PKR 450',
-    tag: 'Premium',
+    name: 'Khaqan XL',
+    desc: 'Spacious SUV for groups and large luggage. Up to 6 passengers.',
+    price: 'From PKR 420',
+    tag: 'Group Rides',
+    tagColor: '#3b82f6',
+  },
+  {
+    emoji: '🏍️',
+    name: 'Khaqan Bike',
+    desc: 'Beat the traffic with our motorbike service. Fast, cheap, and convenient.',
+    price: 'From PKR 80',
+    tag: 'Fastest',
+    tagColor: '#f59e0b',
   },
   {
     emoji: '📦',
     name: 'Khaqan Parcel',
-    desc: 'Same-day delivery for packages across the city. Reliable and trackable.',
+    desc: 'Send packages across the city in hours. Real-time tracking included.',
     price: 'From PKR 150',
-    tag: 'Delivery',
+    tag: 'New',
+    tagColor: '#8b5cf6',
   },
   {
     emoji: '🏢',
     name: 'Khaqan Business',
-    desc: 'Corporate accounts, bulk rides, and invoicing for your entire team.',
+    desc: 'Corporate accounts with centralized billing, reporting and priority support.',
     price: 'Custom Plans',
-    tag: 'Corporate',
+    tag: 'Enterprise',
+    tagColor: '#ef4444',
   },
   {
-    emoji: '🚐',
+    emoji: '🚛',
     name: 'Khaqan Cargo',
-    desc: 'Move heavy goods and furniture with our cargo van service across the city.',
+    desc: 'Heavy goods transport for businesses. Pickup trucks and vans available.',
     price: 'From PKR 800',
-    tag: 'Heavy Load',
+    tag: 'Business',
+    tagColor: '#0d1b2a',
   },
 ];
 
@@ -52,26 +58,30 @@ export default function ServicesSection() {
         <div className={styles.header}>
           <span className={styles.badge}>Our Services</span>
           <h2 className={styles.title}>
-            Every ride, every need —
-            <br /><span className={styles.green}>we&apos;ve got you covered</span>
+            Every ride, every need —{' '}
+            <span className={styles.green}>covered</span>
           </h2>
           <p className={styles.sub}>
-            From quick bike rides to luxury cars, Khaqan has a ride for every budget and occasion.
+            From daily commutes to corporate travel, Khaqan has the perfect ride for every occasion.
           </p>
         </div>
-
         <div className={styles.grid}>
           {services.map((s) => (
             <div key={s.name} className={styles.card}>
               <div className={styles.cardTop}>
-                <span className={styles.emoji}>{s.emoji}</span>
-                <span className={styles.tag}>{s.tag}</span>
+                <span className={styles.cardEmoji}>{s.emoji}</span>
+                <span
+                  className={styles.cardTag}
+                  style={{ background: s.tagColor + '18', color: s.tagColor }}
+                >
+                  {s.tag}
+                </span>
               </div>
               <h3 className={styles.cardName}>{s.name}</h3>
               <p className={styles.cardDesc}>{s.desc}</p>
               <div className={styles.cardFooter}>
-                <span className={styles.price}>{s.price}</span>
-                <a href="#download" className={styles.bookBtn}>Book Now</a>
+                <span className={styles.cardPrice}>{s.price}</span>
+                <span className={styles.cardArrow}>→</span>
               </div>
             </div>
           ))}

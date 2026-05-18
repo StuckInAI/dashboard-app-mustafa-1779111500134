@@ -1,36 +1,31 @@
-import type { ActivityItem } from '@/types';
 import styles from './ActivityFeed.module.css';
 
-type ActivityFeedProps = {
-  items: ActivityItem[];
-};
+interface Activity {
+  id: string;
+  text: string;
+  time: string;
+  type?: string;
+}
 
-const typeColors: Record<ActivityItem['type'], string> = {
-  success: 'var(--color-accent-green)',
-  error: 'var(--color-accent-red)',
-  warning: 'var(--color-accent-orange)',
-  info: 'var(--color-accent-blue)',
-};
+interface ActivityFeedProps {
+  activities?: Activity[];
+}
 
-export default function ActivityFeed({ items }: ActivityFeedProps) {
+const defaultActivities: Activity[] = [
+  { id: '1', text: 'New candidate applied', time: '2 min ago', type: 'apply' },
+  { id: '2', text: 'Interview scheduled', time: '15 min ago', type: 'interview' },
+  { id: '3', text: 'Offer sent', time: '1 hr ago', type: 'offer' },
+];
+
+export default function ActivityFeed({ activities = defaultActivities }: ActivityFeedProps) {
   return (
     <div className={styles.feed}>
-      {items.map((item) => (
-        <div key={item.id} className={styles.item}>
-          <div className={styles.avatarWrapper}>
-            <div className={styles.avatar}>{item.avatar}</div>
-            <span
-              className={styles.dot}
-              style={{ background: typeColors[item.type] }}
-            />
-          </div>
-          <div className={styles.body}>
-            <p className={styles.text}>
-              <span className={styles.userName}>{item.user}</span>{' '}
-              {item.action}{' '}
-              <span className={styles.target}>{item.target}</span>
-            </p>
-            <p className={styles.time}>{item.time}</p>
+      {activities.map((a) => (
+        <div key={a.id} className={styles.item}>
+          <div className={styles.dot} />
+          <div className={styles.content}>
+            <p className={styles.text}>{a.text}</p>
+            <span className={styles.time}>{a.time}</span>
           </div>
         </div>
       ))}

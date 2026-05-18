@@ -1,13 +1,3 @@
-.page { display: flex; flex-direction: column; gap: var(--space-5); }
-.statsGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-4); }
-@media (max-width: 1100px) { .statsGrid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 600px) { .statsGrid { grid-template-columns: 1fr; } }
-
-.row { display: grid; grid-template-columns: 2fr 1fr; gap: var(--space-4); }
-@media (max-width: 1100px) { .row { grid-template-columns: 1fr; } }
-.wide { min-width: 0; }
-
-.legend { display: flex; gap: var(--space-3); }
-.legendItem { display: inline-flex; align-items: center; gap: 6px; font-size: var(--font-size-xs); color: var(--color-text-secondary); }
-.dotBlue { width: 8px; height: 8px; border-radius: var(--radius-full); background: var(--color-accent-blue); }
-.dotFaded { width: 8px; height: 8px; border-radius: var(--radius-full); background: var(--color-border-light); }
+.page {
+  padding: 24px;
+}

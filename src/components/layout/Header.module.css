@@ -1,94 +1,21 @@
 .header {
-  height: var(--header-height);
-  background-color: var(--color-bg-secondary);
-  border-bottom: 1px solid var(--color-border);
-  padding: 0 var(--space-6);
+  background: #fff;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 0 24px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+}
+
+.container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-4);
+  width: 100%;
 }
 
-.left { display: flex; flex-direction: column; min-width: 0; }
-.title { font-size: var(--font-size-lg); font-weight: var(--font-weight-semibold); color: var(--color-text-primary); }
-.subtitle { font-size: var(--font-size-xs); color: var(--color-text-muted); }
-
-.right { display: flex; align-items: center; gap: var(--space-3); }
-
-.searchBox {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-.searchIcon {
-  position: absolute;
-  left: 10px;
-  color: var(--color-text-muted);
-}
-.searchInput {
-  background-color: var(--color-bg-card);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  padding: 8px 12px 8px 32px;
-  color: var(--color-text-primary);
-  font-size: var(--font-size-sm);
-  width: 260px;
-  outline: none;
-  transition: border-color 0.15s;
-}
-.searchInput:focus { border-color: var(--color-accent-blue); }
-
-.primaryBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: var(--gradient-blue);
-  color: white;
-  padding: 8px 14px;
-  border-radius: var(--radius-md);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  transition: opacity 0.15s;
-}
-.primaryBtn:hover { opacity: 0.9; }
-
-.iconBtn {
-  position: relative;
-  width: 36px;
-  height: 36px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--color-bg-card);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  color: var(--color-text-secondary);
-  transition: background-color 0.15s;
-}
-.iconBtn:hover { background-color: var(--color-bg-hover); color: var(--color-text-primary); }
-.badge {
-  position: absolute;
-  top: -4px;
-  right: -4px;
-  background-color: var(--color-accent-red);
-  color: white;
-  font-size: 10px;
-  font-weight: var(--font-weight-bold);
-  border-radius: var(--radius-full);
-  padding: 1px 5px;
-  min-width: 16px;
-  text-align: center;
-}
-
-.avatar {
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-full);
-  background: var(--gradient-purple);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-semibold);
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0d1b2a;
 }

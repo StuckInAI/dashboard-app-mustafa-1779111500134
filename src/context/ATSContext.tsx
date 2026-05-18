@@ -1,31 +1,17 @@
-import { createContext, useContext, useState, useCallback } from 'react';
-import type { ReactNode } from 'react';
-import type { Candidate, StageId, Task } from '@/types';
-import { candidates as initialCandidates, tasks as initialTasks } from '@/lib/mockData';
+import { createContext, useContext, useState, ReactNode } from 'react';
 
-type ATSContextValue = {
-  candidates: Candidate[];
-  moveCandidate: (id: string, stage: StageId) => void;
-  tasks: Task[];
-  toggleTask: (id: string) => void;
-};
+interface ATSContextType {
+  sidebarOpen: boolean;
+  setSidebarOpen: (open: boolean) => void;
+}
 
-const ATSContext = createContext<ATSContextValue | undefined>(undefined);
+const ATSContext = createContext<ATSContextType | undefined>(undefined);
 
 export function ATSProvider({ children }: { children: ReactNode }) {
-  const [candidates, setCandidates] = useState<Candidate[]>(initialCandidates);
-  const [tasks, setTasks] = useState<Task[]>(initialTasks);
-
-  const moveCandidate = useCallback((id: string, stage: StageId) => {
-    setCandidates((prev) => prev.map((c) => (c.id === id ? { ...c, stage } : c)));
-  }, []);
-
-  const toggleTask = useCallback((id: string) => {
-    setTasks((prev) => prev.map((t) => (t.id === id ? { ...t, done: !t.done } : t)));
-  }, []);
+  const [sidebarOpen, setSidebarOpen] = useState(true);
 
   return (
-    <ATSContext.Provider value={{ candidates, moveCandidate, tasks, toggleTask }}>
+    <ATSContext.Provider value={{ sidebarOpen, setSidebarOpen }}>
       {children}
     </ATSContext.Provider>
   );

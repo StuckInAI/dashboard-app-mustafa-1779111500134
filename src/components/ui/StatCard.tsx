@@ -1,38 +1,28 @@
-import { TrendingUp, TrendingDown, Briefcase, Users, Calendar, Award, DollarSign, BarChart2, ShoppingCart } from 'lucide-react';
-import type { StatCard as StatCardType } from '@/types';
 import styles from './StatCard.module.css';
+import { clsx } from 'clsx';
+import { ReactNode } from 'react';
 
-type StatCardProps = {
-  data: StatCardType;
-};
+interface StatCardProps {
+  title: string;
+  value: string | number;
+  icon?: ReactNode;
+  trend?: number;
+  color?: 'green' | 'blue' | 'yellow' | 'red';
+}
 
-const iconMap: Record<string, React.ReactNode> = {
-  briefcase: <Briefcase size={20} />,
-  users: <Users size={20} />,
-  calendar: <Calendar size={20} />,
-  award: <Award size={20} />,
-  dollar: <DollarSign size={20} />,
-  shopping: <ShoppingCart size={20} />,
-  chart: <BarChart2 size={20} />,
-};
-
-export default function StatCard({ data }: StatCardProps) {
-  const isPositive = data.change >= 0;
-
+export default function StatCard({ title, value, icon, trend, color = 'green' }: StatCardProps) {
   return (
-    <div className={styles.card}>
-      <div className={styles.iconWrapper} style={{ background: data.gradient }}>
-        {iconMap[data.icon]}
+    <div className={clsx(styles.card, styles[color])}>
+      <div className={styles.top}>
+        <span className={styles.title}>{title}</span>
+        {icon && <div className={styles.icon}>{icon}</div>}
       </div>
-      <div className={styles.info}>
-        <p className={styles.title}>{data.title}</p>
-        <p className={styles.value}>{data.value}</p>
-      </div>
-      <div className={[styles.change, isPositive ? styles.positive : styles.negative].join(' ')}>
-        {isPositive ? <TrendingUp size={14} /> : <TrendingDown size={14} />}
-        <span>{Math.abs(data.change)}%</span>
-      </div>
-      <p className={styles.changeLabel}>{data.changeLabel}</p>
+      <div className={styles.value}>{value}</div>
+      {trend !== undefined && (
+        <div className={clsx(styles.trend, trend >= 0 ? styles.up : styles.down)}>
+          {trend >= 0 ? '↑' : '↓'} {Math.abs(trend)}%
+        </div>
+      )}
     </div>
   );
 }
