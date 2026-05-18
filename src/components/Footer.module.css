@@ -25,6 +25,8 @@
   gap: 10px;
 }
 
+.logoMark { display: flex; align-items: center; }
+
 .logoText {
   font-size: 22px;
   font-weight: 900;

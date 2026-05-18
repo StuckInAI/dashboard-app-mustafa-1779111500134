@@ -1,36 +1,36 @@
-import { Shield, CheckCircle, Lock, Eye, Phone, AlertTriangle } from 'lucide-react';
+import { Shield, Eye, Phone, AlertTriangle, Lock, Users } from 'lucide-react';
 import styles from './SafetySection.module.css';
 
-const features = [
+const safetyFeatures = [
   {
     icon: Shield,
-    title: 'Background-Verified Drivers',
-    desc: 'Every Khaqan driver passes a rigorous background check, license verification, and vehicle inspection before going online.',
+    title: 'Verified Drivers',
+    desc: 'Every driver undergoes thorough background checks, document verification, and regular re-screening.',
   },
   {
     icon: Eye,
-    title: 'Real-Time Trip Tracking',
-    desc: 'Track your ride on live map. Share trip details with friends or family with one tap.',
-  },
-  {
-    icon: Lock,
-    title: 'Privacy Protection',
-    desc: 'Your personal information is encrypted. Phone numbers are masked — drivers never see your real number.',
-  },
-  {
-    icon: AlertTriangle,
-    title: 'Emergency SOS Button',
-    desc: 'One-tap SOS connects you directly to emergency services and notifies your emergency contacts instantly.',
-  },
-  {
-    icon: CheckCircle,
-    title: 'Rated & Reviewed Drivers',
-    desc: 'Only drivers maintaining a 4.5+ rating stay active on the platform. Community-powered accountability.',
+    title: 'Real-Time Tracking',
+    desc: 'Share your live location with family and friends during your trip. Always know where you are.',
   },
   {
     icon: Phone,
-    title: '24/7 Support',
-    desc: 'Our safety team is available around the clock. Report issues instantly via in-app chat or call.',
+    title: '24/7 Emergency Support',
+    desc: 'One-tap emergency button connects you to our safety team and local authorities instantly.',
+  },
+  {
+    icon: AlertTriangle,
+    title: 'Incident Reporting',
+    desc: 'Report any issues directly in-app. Our team responds within minutes to ensure your safety.',
+  },
+  {
+    icon: Lock,
+    title: 'Masked Contacts',
+    desc: 'Your phone number is never shared with drivers. All calls go through our secure system.',
+  },
+  {
+    icon: Users,
+    title: 'Community Standards',
+    desc: 'Strict code of conduct for all drivers and riders. Violations result in immediate suspension.',
   },
 ];
 
@@ -40,24 +40,25 @@ export default function SafetySection() {
       <div className={styles.container}>
         <div className={styles.header}>
           <span className={styles.badge}>Safety First</span>
-          <h2 className={styles.title}>Your safety is our
-            <span className={styles.green}> top priority</span>
+          <h2 className={styles.title}>
+            Your safety is our
+            <br /><span className={styles.green}>top priority</span>
           </h2>
           <p className={styles.sub}>
-            At Khaqan, every feature is built with your security in mind —
-            before, during, and after every trip.
+            We've built multiple layers of protection so you can ride with complete confidence,
+            day or night, anywhere in Pakistan.
           </p>
         </div>
 
         <div className={styles.grid}>
-          {features.map((f) => (
-            <div key={f.title} className={styles.card}>
+          {safetyFeatures.map((feature) => (
+            <div key={feature.title} className={styles.card}>
               <div className={styles.iconWrap}>
-                <f.icon size={22} className={styles.icon} />
+                <feature.icon size={22} className={styles.icon} />
               </div>
               <div>
-                <h3 className={styles.cardTitle}>{f.title}</h3>
-                <p className={styles.cardDesc}>{f.desc}</p>
+                <h3 className={styles.cardTitle}>{feature.title}</h3>
+                <p className={styles.cardDesc}>{feature.desc}</p>
               </div>
             </div>
           ))}

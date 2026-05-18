@@ -1,54 +1,47 @@
-import { Star } from 'lucide-react';
 import styles from './TestimonialsSection.module.css';
 
 const testimonials = [
   {
-    name: 'Ayesha Khan',
-    role: 'Daily Commuter, Lahore',
-    avatar: 'AK',
+    name: 'Ayesha Malik',
+    city: 'Lahore',
+    avatar: '👩',
     rating: 5,
-    text: '"Khaqan has completely changed how I commute. Drivers are always on time, the fare is transparent, and I feel safe every single ride. Best app in Pakistan!"',
-    color: '#e8f8f0',
+    text: 'Khaqan is the best ride-hailing app I\'ve used in Pakistan. Always on time, clean cars, and very professional drivers. Highly recommended!',
   },
   {
-    name: 'Bilal Ahmed',
-    role: 'Business Traveler, Karachi',
-    avatar: 'BA',
+    name: 'Ahmed Raza',
+    city: 'Karachi',
+    avatar: '👨',
     rating: 5,
-    text: '"I use Khaqan Business for client meetings. The cars are clean, drivers are professional, and I always arrive on time. It\'s become essential for my work."',
-    color: '#eff6ff',
+    text: 'I use Khaqan every day for my office commute. The prices are fair and the drivers are always polite. Customer support is also excellent.',
   },
   {
-    name: 'Sana Mirza',
-    role: 'University Student, Islamabad',
-    avatar: 'SM',
+    name: 'Sana Hussain',
+    city: 'Islamabad',
+    avatar: '👩\u200d💼',
     rating: 5,
-    text: '"As a student, Khaqan GO is super affordable. I feel safe sharing my live location with family and the SOS feature gives my parents peace of mind."',
-    color: '#fdf4ff',
+    text: 'As a working woman, safety is my top priority. Khaqan\'s verification process and real-time tracking give me complete peace of mind.',
   },
   {
-    name: 'Tariq Hassan',
-    role: 'Driver Partner, Rawalpindi',
-    avatar: 'TH',
+    name: 'Bilal Khan',
+    city: 'Rawalpindi',
+    avatar: '🧑',
     rating: 5,
-    text: '"I\'ve been driving with Khaqan for 2 years. The earnings are great, payouts are on time, and the support team always helps when I need them. Love it!"',
-    color: '#fffbeb',
+    text: 'Switched from another app and never looked back. Khaqan\'s surge pricing is way more reasonable and drivers actually show up!',
   },
   {
-    name: 'Nadia Farooq',
-    role: 'Entrepreneur, Faisalabad',
-    avatar: 'NF',
+    name: 'Fatima Sheikh',
+    city: 'Faisalabad',
+    avatar: '👩\u200d🎓',
     rating: 5,
-    text: '"I use Khaqan Parcel for my small business deliveries. It\'s fast, reliable, and tracked. My customers love same-day delivery and so do I!"',
-    color: '#fef2f2',
+    text: 'The student discount is amazing! I save so much on my daily university commute. The app is also very easy to use.',
   },
   {
     name: 'Usman Ali',
-    role: 'IT Professional, Lahore',
-    avatar: 'UA',
+    city: 'Multan',
+    avatar: '👨\u200d💻',
     rating: 5,
-    text: '"The app is beautifully designed and super easy to use. I booked my first ride in under 2 minutes. The driver tracking is incredibly accurate."',
-    color: '#f0fdf4',
+    text: 'I drive for Khaqan part-time and the earnings are great. The platform is fair, payouts are on time, and the support team is responsive.',
   },
 ];
 
@@ -59,30 +52,26 @@ export default function TestimonialsSection() {
         <div className={styles.header}>
           <span className={styles.badge}>Testimonials</span>
           <h2 className={styles.title}>
-            Loved by riders &
-            <span className={styles.green}> drivers across Pakistan</span>
+            Loved by millions
+            <span className={styles.green}> across Pakistan</span>
           </h2>
           <p className={styles.sub}>
-            Real stories from real people — join the Khaqan community today.
+            Don\'t just take our word for it — here\'s what our riders and drivers have to say.
           </p>
         </div>
 
         <div className={styles.grid}>
           {testimonials.map((t) => (
-            <div key={t.name} className={styles.card} style={{ '--card-color': t.color } as React.CSSProperties}>
+            <div key={t.name} className={styles.card}>
               <div className={styles.stars}>
-                {Array.from({ length: t.rating }).map((_, i) => (
-                  <Star key={i} size={14} fill="#ffc107" stroke="none" />
-                ))}
+                {'★'.repeat(t.rating)}
               </div>
-              <p className={styles.text}>{t.text}</p>
+              <p className={styles.review}>{t.text}</p>
               <div className={styles.author}>
-                <div className={styles.avatar} style={{ background: t.color }}>
-                  <span className={styles.avatarText}>{t.avatar}</span>
-                </div>
+                <span className={styles.avatar}>{t.avatar}</span>
                 <div>
-                  <p className={styles.name}>{t.name}</p>
-                  <p className={styles.role}>{t.role}</p>
+                  <p className={styles.authorName}>{t.name}</p>
+                  <p className={styles.authorCity}>{t.city}</p>
                 </div>
               </div>
             </div>

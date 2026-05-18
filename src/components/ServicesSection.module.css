@@ -8,7 +8,7 @@
   margin: 0 auto;
 }
 
-.sectionHeader {
+.header {
   text-align: center;
   margin-bottom: 56px;
   display: flex;
@@ -17,7 +17,7 @@
   gap: 12px;
 }
 
-.sectionBadge {
+.badge {
   display: inline-block;
   background: var(--brand-green-light);
   color: var(--brand-green-dark);
@@ -29,45 +29,41 @@
   border-radius: 99px;
 }
 
-.sectionTitle {
+.title {
   font-size: clamp(30px, 4vw, 44px);
   font-weight: 900;
   color: var(--brand-dark);
   letter-spacing: -1px;
-  line-height: 1.15;
+  line-height: 1.2;
 }
 
-.green { color: var(--brand-green); }
-
-.sectionSubtext {
+.sub {
   font-size: 17px;
   color: var(--brand-gray);
   max-width: 520px;
-  text-align: center;
   line-height: 1.7;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 20px;
 }
 
 .card {
-  background: #fff;
+  background: var(--brand-bg);
   border: 1.5px solid var(--brand-border);
   border-radius: var(--radius-lg);
-  padding: 28px 24px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
-  cursor: pointer;
+  gap: 10px;
+  transition: box-shadow var(--transition), border-color var(--transition), transform var(--transition);
 }
 .card:hover {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
   border-color: var(--brand-green);
+  transform: translateY(-3px);
 }
 
 .cardTop {
@@ -76,57 +72,58 @@
   justify-content: space-between;
 }
 
-.iconBox {
-  width: 52px;
-  height: 52px;
-  border-radius: var(--radius-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.emoji { font-size: 26px; }
+.emoji { font-size: 32px; }
 
 .tag {
   font-size: 11px;
   font-weight: 700;
-  padding: 4px 10px;
+  padding: 3px 10px;
   border-radius: 99px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
 }
 
-.cardTitle {
-  font-size: 18px;
+.cardName {
+  font-size: 17px;
   font-weight: 800;
   color: var(--brand-dark);
-  margin-top: 4px;
 }
 
 .cardDesc {
-  font-size: 14px;
+  font-size: 13px;
   color: var(--brand-gray);
   line-height: 1.65;
   flex: 1;
 }
 
-.cardPrice {
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--brand-green-dark);
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
 }
 
-.cardCta {
+.price {
   font-size: 14px;
   font-weight: 700;
   color: var(--brand-green);
-  transition: color var(--transition);
-  margin-top: 4px;
 }
-.cardCta:hover { color: var(--brand-green-dark); }
+
+.bookBtn {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--brand-dark);
+  border: 1.5px solid var(--brand-border);
+  border-radius: var(--radius-full);
+  padding: 6px 16px;
+  transition: background var(--transition), border-color var(--transition), color var(--transition);
+}
+.bookBtn:hover {
+  background: var(--brand-green);
+  border-color: var(--brand-green);
+  color: #fff;
+}
 
 @media (max-width: 900px) {
-  .grid { grid-template-columns: 1fr 1fr; }
+  .grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 560px) {
   .grid { grid-template-columns: 1fr; }

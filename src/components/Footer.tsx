@@ -78,7 +78,7 @@ export default function Footer() {
         {/* Bottom */}
         <div className={styles.bottom}>
           <p className={styles.copyright}>
-            © 2024 Khaqan Ride-Hailing Service. All rights reserved.
+            &copy; 2024 Khaqan Ride-Hailing Service. All rights reserved.
           </p>
           <div className={styles.legalLinks}>
             <a href="#">Privacy Policy</a>
