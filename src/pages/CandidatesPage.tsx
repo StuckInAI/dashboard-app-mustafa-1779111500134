@@ -1,32 +1,27 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styles from './CandidatesPage.module.css';
-import { mockCandidates } from '@/lib/mockData';
+import { mockCandidates } from '../lib/mockData';
+import type { Candidate } from '../types';
 
 export default function CandidatesPage() {
-  const [search, setSearch] = useState('');
-
-  const filtered = mockCandidates.filter(
-    (c) =>
-      c.name.toLowerCase().includes(search.toLowerCase()) ||
-      c.role.toLowerCase().includes(search.toLowerCase())
-  );
+  const [candidates] = useState<Candidate[]>(mockCandidates);
 
   return (
     <div className={styles.page}>
       <h1 className={styles.title}>Candidates</h1>
-      <input
-        className={styles.search}
-        placeholder="Search candidates..."
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
-      <div className={styles.list}>
-        {filtered.map((c) => (
-          <div key={c.id} className={styles.card}>
-            <div className={styles.name}>{c.name}</div>
-            <div className={styles.role}>{c.role}</div>
-            <div className={styles.status}>{c.status}</div>
-            <div className={styles.date}>{c.date}</div>
+      <div className={styles.table}>
+        <div className={styles.headerRow}>
+          <span>Name</span>
+          <span>Role</span>
+          <span>Status</span>
+          <span>Score</span>
+        </div>
+        {candidates.map((c) => (
+          <div key={c.id} className={styles.row}>
+            <span className={styles.name}>{c.name}</span>
+            <span className={styles.role}>{c.role}</span>
+            <span className={styles.status}>{c.status}</span>
+            <span className={styles.score}>{c.score}</span>
           </div>
         ))}
       </div>

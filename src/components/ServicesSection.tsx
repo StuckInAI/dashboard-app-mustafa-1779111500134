@@ -1,38 +1,47 @@
-import { Car, Bike, Package, Truck, ArrowRight } from 'lucide-react';
 import styles from './ServicesSection.module.css';
 
 const services = [
   {
-    icon: Car,
+    emoji: '🚗',
     name: 'Khaqan GO',
-    desc: 'Affordable everyday rides in comfortable sedans. Perfect for daily commutes.',
+    desc: 'Affordable everyday rides. Fast pickup, comfortable cars.',
     price: 'From PKR 200',
-    color: '#1dbf73',
-    bg: '#e8f8f0',
+    tag: 'Most Popular',
   },
   {
-    icon: Bike,
+    emoji: '🏎️',
+    name: 'Khaqan Prime',
+    desc: 'Premium sedans and SUVs for a first-class experience.',
+    price: 'From PKR 450',
+    tag: 'Premium',
+  },
+  {
+    emoji: '🛵',
     name: 'Khaqan Bike',
-    desc: 'Beat the traffic with our fast and economical bike rides across the city.',
+    desc: 'Beat the traffic with quick, affordable bike rides.',
     price: 'From PKR 80',
-    color: '#3b82f6',
-    bg: '#eff6ff',
+    tag: 'Fastest',
   },
   {
-    icon: Package,
+    emoji: '📦',
     name: 'Khaqan Parcel',
-    desc: 'Send packages and documents across the city with same-day delivery.',
+    desc: 'Same-day parcel delivery across the city.',
     price: 'From PKR 150',
-    color: '#f59e0b',
-    bg: '#fffbeb',
+    tag: 'Delivery',
   },
   {
-    icon: Truck,
+    emoji: '🚌',
+    name: 'Khaqan Share',
+    desc: 'Share rides with others heading your way. Save more.',
+    price: 'From PKR 120',
+    tag: 'Eco-Friendly',
+  },
+  {
+    emoji: '🚛',
     name: 'Khaqan Cargo',
-    desc: 'Move large items and furniture with our fleet of cargo vehicles.',
+    desc: 'Move heavy items and goods with our cargo vehicles.',
     price: 'From PKR 800',
-    color: '#8b5cf6',
-    bg: '#f5f3ff',
+    tag: 'Heavy Loads',
   },
 ];
 
@@ -43,30 +52,27 @@ export default function ServicesSection() {
         <div className={styles.header}>
           <span className={styles.badge}>Our Services</span>
           <h2 className={styles.title}>
-            Everything you need,{' '}
-            <span className={styles.green}>one app</span>
+            Every ride, every need —
+            <br /><span className={styles.green}>we&apos;ve got you covered</span>
           </h2>
           <p className={styles.sub}>
-            From quick bike rides to cargo deliveries — Khaqan has a solution for every journey.
+            From daily commutes to cargo deliveries, Khaqan offers a full suite
+            of mobility solutions built for Pakistan.
           </p>
         </div>
 
         <div className={styles.grid}>
-          {services.map((service) => (
-            <div key={service.name} className={styles.card}>
-              <div
-                className={styles.iconWrap}
-                style={{ background: service.bg }}
-              >
-                <service.icon size={26} style={{ color: service.color }} />
+          {services.map((s) => (
+            <div key={s.name} className={styles.card}>
+              <div className={styles.cardTop}>
+                <span className={styles.emoji}>{s.emoji}</span>
+                <span className={styles.tag}>{s.tag}</span>
               </div>
-              <h3 className={styles.cardTitle}>{service.name}</h3>
-              <p className={styles.cardDesc}>{service.desc}</p>
+              <h3 className={styles.cardName}>{s.name}</h3>
+              <p className={styles.cardDesc}>{s.desc}</p>
               <div className={styles.cardFooter}>
-                <span className={styles.price}>{service.price}</span>
-                <span className={styles.learnMore}>
-                  Learn more <ArrowRight size={14} />
-                </span>
+                <span className={styles.price}>{s.price}</span>
+                <a href="#download" className={styles.bookBtn}>Book Now</a>
               </div>
             </div>
           ))}

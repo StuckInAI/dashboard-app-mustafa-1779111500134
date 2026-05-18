@@ -1,17 +1,16 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styles from './SettingsPage.module.css';
 
 export default function SettingsPage() {
-  const [name, setName] = useState('Acme Corp');
-  const [email, setEmail] = useState('admin@acmecorp.com');
+  const [name, setName] = useState('Admin User');
+  const [email, setEmail] = useState('admin@example.com');
 
   return (
     <div className={styles.page}>
       <h1 className={styles.title}>Settings</h1>
-      <div className={styles.section}>
-        <h2 className={styles.sectionTitle}>Company Info</h2>
+      <div className={styles.form}>
         <div className={styles.field}>
-          <label className={styles.label}>Company Name</label>
+          <label className={styles.label}>Name</label>
           <input
             className={styles.input}
             value={name}
@@ -19,7 +18,7 @@ export default function SettingsPage() {
           />
         </div>
         <div className={styles.field}>
-          <label className={styles.label}>Admin Email</label>
+          <label className={styles.label}>Email</label>
           <input
             className={styles.input}
             value={email}

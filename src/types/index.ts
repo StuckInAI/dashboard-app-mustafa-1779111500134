@@ -3,21 +3,20 @@ export interface Candidate {
   name: string;
   role: string;
   status: string;
-  date: string;
+  score: number;
 }
 
 export interface Job {
   id: string;
   title: string;
-  department: string;
-  location: string;
-  status: string;
+  dept: string;
   applicants: number;
+  status: string;
 }
 
-export interface Stats {
+export interface MockStats {
   totalCandidates: number;
-  openPositions: number;
-  interviewsThisWeek: number;
-  offersSentThisMonth: number;
+  activeJobs: number;
+  interviewsToday: number;
+  offers: number;
 }

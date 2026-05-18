@@ -1,10 +1,8 @@
-import React from 'react';
-
 export default function IntegrationsPage() {
   return (
-    <div style={{ padding: '24px' }}>
+    <div style={{ padding: 32 }}>
       <h1>Integrations</h1>
-      <p>Connect your favorite tools and services.</p>
+      <p>Integrations coming soon.</p>
     </div>
   );
 }

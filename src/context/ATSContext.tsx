@@ -1,17 +1,17 @@
 import { createContext, useContext, useState, ReactNode } from 'react';
 
 interface ATSContextType {
-  sidebarOpen: boolean;
-  setSidebarOpen: (open: boolean) => void;
+  currentPage: string;
+  setCurrentPage: (page: string) => void;
 }
 
 const ATSContext = createContext<ATSContextType | undefined>(undefined);
 
 export function ATSProvider({ children }: { children: ReactNode }) {
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [currentPage, setCurrentPage] = useState('dashboard');
 
   return (
-    <ATSContext.Provider value={{ sidebarOpen, setSidebarOpen }}>
+    <ATSContext.Provider value={{ currentPage, setCurrentPage }}>
       {children}
     </ATSContext.Provider>
   );

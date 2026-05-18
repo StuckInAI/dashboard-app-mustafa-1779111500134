@@ -1,15 +1,12 @@
 import styles from './Badge.module.css';
-import { clsx } from 'clsx';
 
 interface BadgeProps {
-  children: React.ReactNode;
-  variant?: 'green' | 'blue' | 'red' | 'yellow' | 'gray';
+  label: string;
+  variant?: 'default' | 'success' | 'warning' | 'danger';
 }
 
-export default function Badge({ children, variant = 'gray' }: BadgeProps) {
+export default function Badge({ label, variant = 'default' }: BadgeProps) {
   return (
-    <span className={clsx(styles.badge, styles[variant])}>
-      {children}
-    </span>
+    <span className={`${styles.badge} ${styles[variant]}`}>{label}</span>
   );
 }

@@ -1,57 +1,35 @@
 import styles from './DonutChart.module.css';
 
 interface DonutChartProps {
-  data?: { label: string; value: number; color: string }[];
-  size?: number;
-  thickness?: number;
+  value: number;
+  max?: number;
+  label?: string;
+  color?: string;
 }
 
-const defaultData = [
-  { label: 'Applied', value: 40, color: '#3b82f6' },
-  { label: 'Interview', value: 30, color: '#f59e0b' },
-  { label: 'Offer', value: 20, color: '#1dbf73' },
-  { label: 'Rejected', value: 10, color: '#ef4444' },
-];
-
-export default function DonutChart({ data = defaultData, size = 160, thickness = 30 }: DonutChartProps) {
-  const total = data.reduce((sum, d) => sum + d.value, 0);
-  const radius = (size - thickness) / 2;
-  const circumference = 2 * Math.PI * radius;
-  let cumulative = 0;
+export default function DonutChart({ value, max = 100, label, color = '#1dbf73' }: DonutChartProps) {
+  const r = 40;
+  const circ = 2 * Math.PI * r;
+  const pct = Math.min(value / max, 1);
+  const dash = pct * circ;
 
   return (
-    <div className={styles.wrap}>
-      <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
-        {data.map((d) => {
-          const offset = circumference - (d.value / total) * circumference;
-          const rotation = (cumulative / total) * 360 - 90;
-          cumulative += d.value;
-          return (
-            <circle
-              key={d.label}
-              cx={size / 2}
-              cy={size / 2}
-              r={radius}
-              fill="none"
-              stroke={d.color}
-              strokeWidth={thickness}
-              strokeDasharray={`${circumference} ${circumference}`}
-              strokeDashoffset={offset}
-              transform={`rotate(${rotation} ${size / 2} ${size / 2})`}
-              style={{ transition: 'stroke-dashoffset 0.5s ease' }}
-            />
-          );
-        })}
+    <div className={styles.wrapper}>
+      <svg width="100" height="100" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r={r} fill="none" stroke="#e2e8f0" strokeWidth="10" />
+        <circle
+          cx="50"
+          cy="50"
+          r={r}
+          fill="none"
+          stroke={color}
+          strokeWidth="10"
+          strokeDasharray={`${dash} ${circ}`}
+          strokeLinecap="round"
+          transform="rotate(-90 50 50)"
+        />
       </svg>
-      <div className={styles.legend}>
-        {data.map((d) => (
-          <div key={d.label} className={styles.legendItem}>
-            <span className={styles.dot} style={{ background: d.color }} />
-            <span className={styles.legendLabel}>{d.label}</span>
-            <span className={styles.legendVal}>{d.value}%</span>
-          </div>
-        ))}
-      </div>
+      {label && <span className={styles.label}>{label}</span>}
     </div>
   );
 }
