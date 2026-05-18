@@ -1,4 +1,4 @@
-import { TrendingUp, TrendingDown, DollarSign, Users, ShoppingCart, BarChart2 } from 'lucide-react';
+import { TrendingUp, TrendingDown, Briefcase, Users, Calendar, Award, DollarSign, BarChart2, ShoppingCart } from 'lucide-react';
 import type { StatCard as StatCardType } from '@/types';
 import styles from './StatCard.module.css';
 
@@ -7,8 +7,11 @@ type StatCardProps = {
 };
 
 const iconMap: Record<string, React.ReactNode> = {
-  dollar: <DollarSign size={20} />,
+  briefcase: <Briefcase size={20} />,
   users: <Users size={20} />,
+  calendar: <Calendar size={20} />,
+  award: <Award size={20} />,
+  dollar: <DollarSign size={20} />,
   shopping: <ShoppingCart size={20} />,
   chart: <BarChart2 size={20} />,
 };

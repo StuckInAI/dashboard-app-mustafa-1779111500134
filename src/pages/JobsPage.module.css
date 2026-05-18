@@ -1,0 +1,43 @@
+.page { display: flex; flex-direction: column; gap: var(--space-5); }
+
+.toolbar { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); flex-wrap: wrap; }
+.tabs { display: flex; gap: var(--space-2); flex-wrap: wrap; }
+.tab {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  padding: 6px 12px;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  transition: all 0.15s;
+}
+.tab:hover { background: var(--color-bg-hover); color: var(--color-text-primary); }
+.tabActive { background: var(--color-accent-blue); color: white; border-color: var(--color-accent-blue); }
+.tabCount { font-size: 10px; background: rgba(255,255,255,0.15); padding: 1px 6px; border-radius: var(--radius-full); }
+.tabActive .tabCount { background: rgba(255,255,255,0.2); }
+
+.createBtn {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--gradient-green); color: white;
+  padding: 8px 14px; border-radius: var(--radius-md);
+  font-size: var(--font-size-sm); font-weight: var(--font-weight-medium);
+}
+
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); }
+@media (max-width: 1100px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 700px) { .grid { grid-template-columns: 1fr; } }
+
+.jobCard { transition: transform 0.15s, border-color 0.15s; }
+.jobCard:hover { border-color: var(--color-border-light); transform: translateY(-2px); }
+.jobHeader { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--space-3); margin-bottom: var(--space-3); }
+.jobTitle { font-size: var(--font-size-base); font-weight: var(--font-weight-semibold); color: var(--color-text-primary); margin-bottom: 2px; }
+.jobDept { font-size: var(--font-size-xs); color: var(--color-text-muted); }
+.jobMeta { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-bottom: var(--space-4); }
+.metaItem { display: inline-flex; align-items: center; gap: 4px; font-size: var(--font-size-xs); color: var(--color-text-secondary); }
+.jobFooter { display: flex; justify-content: space-between; align-items: center; padding-top: var(--space-3); border-top: 1px solid var(--color-border); }
+.hm { display: flex; align-items: center; gap: var(--space-2); }
+.hmAvatar { width: 28px; height: 28px; border-radius: var(--radius-full); background: var(--gradient-purple); color: white; display: inline-flex; align-items: center; justify-content: center; font-size: 10px; font-weight: var(--font-weight-semibold); }
+.hmName { font-size: var(--font-size-xs); color: var(--color-text-primary); font-weight: var(--font-weight-medium); }
+.hmLabel { font-size: 10px; color: var(--color-text-muted); }
+.posted { font-size: var(--font-size-xs); color: var(--color-text-muted); }
