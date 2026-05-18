@@ -1,0 +1,19 @@
+.root {
+  display: flex;
+  height: 100%;
+  background-color: var(--color-bg-primary);
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin-left: var(--sidebar-width);
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-6);
+}
