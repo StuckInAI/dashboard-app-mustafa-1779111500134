@@ -26,7 +26,7 @@ export default function CitiesSection() {
             <br />across Pakistan
           </h2>
           <p className={styles.sub}>
-            Khaqan is expanding fast. If we\'re not in your city yet, we\'re coming soon!
+            Khaqan is expanding fast. If we&apos;re not in your city yet, we&apos;re coming soon!
           </p>
         </div>
 
