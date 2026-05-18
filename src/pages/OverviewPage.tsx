@@ -1,9 +1,9 @@
-import Card from '@/components/ui/Card';
+import { statCards, recentActivity, sourcesBreakdown, applicationsTrend } from '@/lib/mockData';
 import StatCard from '@/components/ui/StatCard';
-import ActivityFeed from '@/components/ui/ActivityFeed';
+import Card from '@/components/ui/Card';
 import BarChart from '@/components/ui/BarChart';
 import DonutChart from '@/components/ui/DonutChart';
-import { statCards, recentActivity, applicationsOverTime, sourcesBreakdown } from '@/lib/mockData';
+import ActivityFeed from '@/components/ui/ActivityFeed';
 import styles from './OverviewPage.module.css';
 
 export default function OverviewPage() {
@@ -11,20 +11,20 @@ export default function OverviewPage() {
     <div className={styles.page}>
       <div className={styles.statsGrid}>
         {statCards.map((stat) => (
-          <StatCard key={stat.id} stat={stat} />
+          <StatCard key={stat.id} {...stat} />
         ))}
       </div>
 
       <div className={styles.chartsGrid}>
-        <Card title="Applications Over Time" subtitle="Last 7 weeks">
-          <BarChart data={applicationsOverTime} />
+        <Card title="Applications Over Time" subtitle="Last 7 days">
+          <BarChart data={applicationsTrend} height={220} />
         </Card>
-        <Card title="Candidate Sources" subtitle="Where applicants come from">
+        <Card title="Sources Breakdown" subtitle="Where candidates come from">
           <DonutChart data={sourcesBreakdown} />
         </Card>
       </div>
 
-      <Card title="Recent Activity" subtitle="Latest updates from your team">
+      <Card title="Recent Activity" subtitle="Team updates and pipeline changes">
         <ActivityFeed items={recentActivity} />
       </Card>
     </div>
