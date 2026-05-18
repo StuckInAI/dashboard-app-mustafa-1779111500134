@@ -30,7 +30,7 @@
 }
 
 .title {
-  font-size: clamp(30px, 4vw, 44px);
+  font-size: clamp(28px, 3.5vw, 40px);
   font-weight: 900;
   color: var(--brand-dark);
   letter-spacing: -1px;
@@ -41,21 +41,21 @@
 .sub {
   font-size: 17px;
   color: var(--brand-gray);
-  max-width: 480px;
+  max-width: 460px;
   line-height: 1.7;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 24px;
 }
 
 .card {
   background: #fff;
   border: 1.5px solid var(--brand-border);
   border-radius: var(--radius-lg);
-  padding: 24px;
+  padding: 28px 24px;
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -67,27 +67,30 @@
 }
 
 .stars {
-  color: #f59e0b;
-  font-size: 15px;
+  color: #ffc107;
+  font-size: 16px;
   letter-spacing: 2px;
 }
 
-.review {
+.quote {
   font-size: 14px;
   color: var(--brand-gray);
   line-height: 1.7;
   flex: 1;
+  font-style: italic;
 }
 
 .author {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding-top: 14px;
-  border-top: 1px solid var(--brand-border);
+  margin-top: 4px;
 }
 
-.avatar { font-size: 28px; }
+.avatar {
+  font-size: 32px;
+  flex-shrink: 0;
+}
 
 .authorName {
   font-size: 14px;
@@ -103,7 +106,7 @@
 @media (max-width: 900px) {
   .grid { grid-template-columns: repeat(2, 1fr); }
 }
-@media (max-width: 560px) {
+@media (max-width: 600px) {
   .grid { grid-template-columns: 1fr; }
   .section { padding: 64px 16px; }
 }

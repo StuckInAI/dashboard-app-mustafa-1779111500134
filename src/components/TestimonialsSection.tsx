@@ -2,46 +2,46 @@ import styles from './TestimonialsSection.module.css';
 
 const testimonials = [
   {
-    name: 'Ayesha Malik',
+    name: 'Ayesha Khan',
     city: 'Lahore',
     avatar: '👩',
     rating: 5,
-    text: 'Khaqan is the best ride-hailing app I\'ve used in Pakistan. Always on time, clean cars, and very professional drivers. Highly recommended!',
+    text: 'Khaqan is honestly the best ride-hailing app in Pakistan. Always on time, drivers are super polite, and the prices are unbeatable!',
   },
   {
-    name: 'Ahmed Raza',
+    name: 'Muhammad Ali',
     city: 'Karachi',
     avatar: '👨',
     rating: 5,
-    text: 'I use Khaqan every day for my office commute. The prices are fair and the drivers are always polite. Customer support is also excellent.',
+    text: 'I use Khaqan every day for my office commute. The app is smooth, booking is instant, and I feel safe every single ride.',
   },
   {
-    name: 'Sana Hussain',
+    name: 'Sana Mirza',
     city: 'Islamabad',
-    avatar: '👩\u200d💼',
+    avatar: '👩‍💼',
     rating: 5,
-    text: 'As a working woman, safety is my top priority. Khaqan\'s verification process and real-time tracking give me complete peace of mind.',
+    text: 'As a woman, safety matters most to me. Khaqan\'s SOS feature and verified drivers give me so much peace of mind.',
   },
   {
-    name: 'Bilal Khan',
+    name: 'Usman Tariq',
     city: 'Rawalpindi',
-    avatar: '🧑',
+    avatar: '🧑‍💻',
     rating: 5,
-    text: 'Switched from another app and never looked back. Khaqan\'s surge pricing is way more reasonable and drivers actually show up!',
+    text: 'Switched from another app and never looked back. Khaqan has better drivers, better prices, and a way smoother experience.',
   },
   {
-    name: 'Fatima Sheikh',
+    name: 'Fatima Zahra',
     city: 'Faisalabad',
-    avatar: '👩\u200d🎓',
+    avatar: '👩‍🦱',
     rating: 5,
-    text: 'The student discount is amazing! I save so much on my daily university commute. The app is also very easy to use.',
+    text: 'The driver rating system is brilliant. Every driver I\'ve had has been professional and the cars are always clean!',
   },
   {
-    name: 'Usman Ali',
+    name: 'Bilal Chaudhry',
     city: 'Multan',
-    avatar: '👨\u200d💻',
+    avatar: '👨‍🦰',
     rating: 5,
-    text: 'I drive for Khaqan part-time and the earnings are great. The platform is fair, payouts are on time, and the support team is responsive.',
+    text: 'PKR 280 from my home to the office — I was shocked. Khaqan is genuinely affordable without compromising on quality.',
   },
 ];
 
@@ -50,13 +50,12 @@ export default function TestimonialsSection() {
     <section className={styles.section} id="testimonials">
       <div className={styles.container}>
         <div className={styles.header}>
-          <span className={styles.badge}>Testimonials</span>
+          <span className={styles.badge}>What Riders Say</span>
           <h2 className={styles.title}>
-            Loved by millions
-            <span className={styles.green}> across Pakistan</span>
+            Loved by <span className={styles.green}>millions</span> across Pakistan
           </h2>
           <p className={styles.sub}>
-            Don\'t just take our word for it — here\'s what our riders and drivers have to say.
+            Don&apos;t just take our word for it. Here&apos;s what real Khaqan riders are saying.
           </p>
         </div>
 
@@ -66,7 +65,7 @@ export default function TestimonialsSection() {
               <div className={styles.stars}>
                 {'★'.repeat(t.rating)}
               </div>
-              <p className={styles.review}>{t.text}</p>
+              <p className={styles.quote}>&ldquo;{t.text}&rdquo;</p>
               <div className={styles.author}>
                 <span className={styles.avatar}>{t.avatar}</span>
                 <div>

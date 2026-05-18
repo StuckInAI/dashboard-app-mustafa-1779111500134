@@ -30,31 +30,32 @@
 }
 
 .title {
-  font-size: clamp(30px, 4vw, 44px);
+  font-size: clamp(28px, 3.5vw, 40px);
   font-weight: 900;
   color: var(--brand-dark);
   letter-spacing: -1px;
   line-height: 1.2;
 }
+.green { color: var(--brand-green); }
 
 .sub {
   font-size: 17px;
   color: var(--brand-gray);
-  max-width: 520px;
+  max-width: 480px;
   line-height: 1.7;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 24px;
 }
 
 .card {
   background: var(--brand-bg);
   border: 1.5px solid var(--brand-border);
   border-radius: var(--radius-lg);
-  padding: 24px;
+  padding: 28px 24px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -77,18 +78,20 @@
 .tag {
   font-size: 11px;
   font-weight: 700;
+  background: var(--brand-green-light);
+  color: var(--brand-green-dark);
   padding: 3px 10px;
   border-radius: 99px;
 }
 
 .cardName {
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 800;
   color: var(--brand-dark);
 }
 
 .cardDesc {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--brand-gray);
   line-height: 1.65;
   flex: 1;
@@ -104,28 +107,26 @@
 .price {
   font-size: 14px;
   font-weight: 700;
-  color: var(--brand-green);
+  color: var(--brand-green-dark);
 }
 
 .bookBtn {
   font-size: 13px;
   font-weight: 700;
-  color: var(--brand-dark);
-  border: 1.5px solid var(--brand-border);
-  border-radius: var(--radius-full);
-  padding: 6px 16px;
-  transition: background var(--transition), border-color var(--transition), color var(--transition);
+  color: var(--brand-green);
+  border-bottom: 1.5px solid var(--brand-green);
+  padding-bottom: 1px;
+  transition: color var(--transition), border-color var(--transition);
 }
 .bookBtn:hover {
-  background: var(--brand-green);
-  border-color: var(--brand-green);
-  color: #fff;
+  color: var(--brand-green-dark);
+  border-color: var(--brand-green-dark);
 }
 
 @media (max-width: 900px) {
   .grid { grid-template-columns: repeat(2, 1fr); }
 }
-@media (max-width: 560px) {
+@media (max-width: 600px) {
   .grid { grid-template-columns: 1fr; }
   .section { padding: 64px 16px; }
 }

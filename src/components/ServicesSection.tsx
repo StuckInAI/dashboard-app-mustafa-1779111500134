@@ -4,50 +4,44 @@ const services = [
   {
     emoji: '🚗',
     name: 'Khaqan GO',
-    desc: 'Affordable everyday rides. AC comfort, verified driver, door-to-door.',
-    price: 'From PKR 150',
+    desc: 'Affordable everyday rides. Book a comfortable sedan for your daily commute.',
+    price: 'From PKR 200',
     tag: 'Most Popular',
-    tagColor: '#1dbf73',
-  },
-  {
-    emoji: '🏎️',
-    name: 'Khaqan Premium',
-    desc: 'Luxury vehicles with top-rated drivers for special occasions or business travel.',
-    price: 'From PKR 350',
-    tag: 'Premium',
-    tagColor: '#7c3aed',
   },
   {
     emoji: '🛵',
     name: 'Khaqan Bike',
-    desc: 'Beat the traffic on a motorbike. Perfect for solo riders in busy city centers.',
+    desc: 'Beat the traffic on two wheels. Fast, cheap, and always available.',
     price: 'From PKR 80',
     tag: 'Fastest',
-    tagColor: '#f59e0b',
   },
   {
-    emoji: '🚐',
-    name: 'Khaqan Cargo',
-    desc: 'Move packages, furniture, or business goods with our reliable cargo vehicles.',
-    price: 'From PKR 500',
-    tag: 'Cargo',
-    tagColor: '#0ea5e9',
-  },
-  {
-    emoji: '👨\u200d👩\u200d👧',
-    name: 'Khaqan Family',
-    desc: 'Spacious 7-seater vehicles for family trips, airport runs, and group outings.',
+    emoji: '🚙',
+    name: 'Khaqan Prime',
+    desc: 'Premium SUVs and luxury sedans for business or special occasions.',
     price: 'From PKR 450',
-    tag: 'Family',
-    tagColor: '#ec4899',
+    tag: 'Premium',
   },
   {
     emoji: '📦',
     name: 'Khaqan Parcel',
-    desc: 'Send documents and parcels across the city. Fast, reliable, and tracked.',
-    price: 'From PKR 120',
+    desc: 'Same-day delivery for packages across the city. Reliable and trackable.',
+    price: 'From PKR 150',
     tag: 'Delivery',
-    tagColor: '#10b981',
+  },
+  {
+    emoji: '🏢',
+    name: 'Khaqan Business',
+    desc: 'Corporate accounts, bulk rides, and invoicing for your entire team.',
+    price: 'Custom Plans',
+    tag: 'Corporate',
+  },
+  {
+    emoji: '🚐',
+    name: 'Khaqan Cargo',
+    desc: 'Move heavy goods and furniture with our cargo van service across the city.',
+    price: 'From PKR 800',
+    tag: 'Heavy Load',
   },
 ];
 
@@ -58,30 +52,25 @@ export default function ServicesSection() {
         <div className={styles.header}>
           <span className={styles.badge}>Our Services</span>
           <h2 className={styles.title}>
-            A ride for every need
+            Every ride, every need —
+            <br /><span className={styles.green}>we&apos;ve got you covered</span>
           </h2>
           <p className={styles.sub}>
-            From budget bikes to luxury sedans — Khaqan has the perfect vehicle
-            for every journey and every budget.
+            From quick bike rides to luxury cars, Khaqan has a ride for every budget and occasion.
           </p>
         </div>
 
         <div className={styles.grid}>
-          {services.map((svc) => (
-            <div key={svc.name} className={styles.card}>
+          {services.map((s) => (
+            <div key={s.name} className={styles.card}>
               <div className={styles.cardTop}>
-                <span className={styles.emoji}>{svc.emoji}</span>
-                <span
-                  className={styles.tag}
-                  style={{ background: svc.tagColor + '1a', color: svc.tagColor }}
-                >
-                  {svc.tag}
-                </span>
+                <span className={styles.emoji}>{s.emoji}</span>
+                <span className={styles.tag}>{s.tag}</span>
               </div>
-              <h3 className={styles.cardName}>{svc.name}</h3>
-              <p className={styles.cardDesc}>{svc.desc}</p>
+              <h3 className={styles.cardName}>{s.name}</h3>
+              <p className={styles.cardDesc}>{s.desc}</p>
               <div className={styles.cardFooter}>
-                <span className={styles.price}>{svc.price}</span>
+                <span className={styles.price}>{s.price}</span>
                 <a href="#download" className={styles.bookBtn}>Book Now</a>
               </div>
             </div>
