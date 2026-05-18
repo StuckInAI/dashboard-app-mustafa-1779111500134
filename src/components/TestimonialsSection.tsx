@@ -2,46 +2,52 @@ import styles from './TestimonialsSection.module.css';
 
 const testimonials = [
   {
-    name: 'Ayesha Malik',
+    name: 'Ayesha Mahmood',
     city: 'Lahore',
     avatar: '👩',
     rating: 5,
-    text: 'Khaqan has completely changed how I commute. The drivers are always polite and the cars are clean. Best ride app in Pakistan!',
+    text: 'Khaqan has completely changed how I commute. The drivers are always on time and so professional. I feel safe every single ride!',
+    rides: '200+ rides',
   },
   {
-    name: 'Usman Tariq',
+    name: 'Hassan Raza',
     city: 'Karachi',
     avatar: '👨',
     rating: 5,
-    text: 'Super fast pickup, very affordable. I use Khaqan every single day for work. Never going back to rickshaws!',
+    text: 'Switched from other apps and never looked back. Prices are fair, the app is super smooth, and customer support actually helps.',
+    rides: '150+ rides',
   },
   {
-    name: 'Sana Hussain',
+    name: 'Sana Tariq',
     city: 'Islamabad',
     avatar: '👩‍💼',
     rating: 5,
-    text: 'The safety features give me so much peace of mind. I can share my live location with my family. Highly recommended!',
+    text: 'As a working woman, safety is my top concern. Khaqan\'s verified drivers and live tracking give me complete peace of mind.',
+    rides: '80+ rides',
   },
   {
-    name: 'Ahmed Raza',
-    city: 'Rawalpindi',
-    avatar: '🧔',
-    rating: 5,
-    text: 'As a driver, Khaqan has helped me earn so much more. Flexible hours and weekly payouts. Life changing!',
-  },
-  {
-    name: 'Fatima Zahra',
+    name: 'Bilal Ahmed',
     city: 'Faisalabad',
-    avatar: '👩‍🎓',
+    avatar: '🧑',
     rating: 5,
-    text: 'Affordable, safe, and always on time. Khaqan is the best thing to happen to commuters in Pakistan.',
+    text: 'The Khaqan Business account has saved our company so much time. Monthly invoicing and driver tracking — exactly what we needed.',
+    rides: '500+ rides',
   },
   {
-    name: 'Bilal Khan',
-    city: 'Multan',
-    avatar: '👨‍💻',
+    name: 'Fatima Khan',
+    city: 'Rawalpindi',
+    avatar: '👧',
     rating: 5,
-    text: 'The app is so easy to use and the fare estimates are always accurate. Zero hidden charges. Love it!',
+    text: 'I love how quick it is to book a ride. Within 3 minutes I have a driver at my door. Best app in Pakistan, no doubt!',
+    rides: '120+ rides',
+  },
+  {
+    name: 'Usman Sheikh',
+    city: 'Multan',
+    avatar: '👴',
+    rating: 5,
+    text: 'Even at my age, the app is very easy to use. My grandchildren helped me set it up and now I use it daily. Wonderful service!',
+    rides: '60+ rides',
   },
 ];
 
@@ -52,11 +58,10 @@ export default function TestimonialsSection() {
         <div className={styles.header}>
           <span className={styles.badge}>Testimonials</span>
           <h2 className={styles.title}>
-            Loved by riders
-            <br /><span className={styles.green}>across Pakistan</span>
+            Loved by riders <span className={styles.green}>across Pakistan</span>
           </h2>
           <p className={styles.sub}>
-            Don&apos;t just take our word for it. Here&apos;s what our community has to say.
+            Real stories from real riders. Join millions who trust Khaqan for their daily journeys.
           </p>
         </div>
 
@@ -66,12 +71,12 @@ export default function TestimonialsSection() {
               <div className={styles.stars}>
                 {'★'.repeat(t.rating)}
               </div>
-              <p className={styles.text}>&ldquo;{t.text}&rdquo;</p>
+              <p className={styles.quote}>&ldquo;{t.text}&rdquo;</p>
               <div className={styles.author}>
                 <span className={styles.avatar}>{t.avatar}</span>
                 <div>
                   <p className={styles.authorName}>{t.name}</p>
-                  <p className={styles.authorCity}>{t.city}</p>
+                  <p className={styles.authorMeta}>{t.city} · {t.rides}</p>
                 </div>
               </div>
             </div>

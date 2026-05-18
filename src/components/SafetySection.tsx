@@ -1,36 +1,36 @@
-import { Shield, Eye, Phone, MapPin, Star, Lock } from 'lucide-react';
+import { Shield, Eye, Phone, UserCheck, Lock, AlertTriangle } from 'lucide-react';
 import styles from './SafetySection.module.css';
 
 const features = [
   {
-    icon: Shield,
-    title: 'Driver Background Checks',
-    desc: 'Every driver undergoes rigorous criminal background verification before joining our platform.',
+    icon: UserCheck,
+    title: 'Driver Verification',
+    desc: 'All drivers undergo comprehensive background checks, document verification, and in-person training before they can drive.',
   },
   {
     icon: Eye,
-    title: 'Real-Time Trip Monitoring',
-    desc: 'Our safety team monitors every ride 24/7. Any deviation from route triggers an instant alert.',
+    title: 'Real-Time Tracking',
+    desc: 'Share your live trip with family or friends. Monitor every turn on our real-time map.',
   },
   {
     icon: Phone,
-    title: 'Emergency SOS Button',
-    desc: 'One tap connects you to emergency services and shares your live location with trusted contacts.',
+    title: 'SOS Emergency Button',
+    desc: 'One tap connects you to our 24/7 safety team and local emergency services instantly.',
   },
   {
-    icon: MapPin,
-    title: 'Share Your Trip',
-    desc: 'Share live trip tracking with family and friends so they always know where you are.',
-  },
-  {
-    icon: Star,
-    title: 'Two-Way Ratings',
-    desc: 'Both riders and drivers rate each trip. Low-rated users are removed from the platform.',
+    icon: Shield,
+    title: 'Ride Insurance',
+    desc: 'Every trip is covered by our comprehensive ride insurance policy for both riders and drivers.',
   },
   {
     icon: Lock,
-    title: 'Masked Phone Numbers',
-    desc: 'Your personal number is never shared. All calls go through our encrypted relay system.',
+    title: 'Anonymous Calling',
+    desc: 'Your personal phone number is never shared with drivers. All calls are masked and encrypted.',
+  },
+  {
+    icon: AlertTriangle,
+    title: 'Incident Reporting',
+    desc: 'Report any safety concern directly in the app. Our team responds within 2 hours, 24/7.',
   },
 ];
 
@@ -45,8 +45,8 @@ export default function SafetySection() {
             <br /><span className={styles.green}>top priority</span>
           </h2>
           <p className={styles.sub}>
-            We&apos;ve built multiple layers of protection into every single ride,
-            so you can travel with complete peace of mind.
+            Khaqan is built with safety at its core. Every feature, every policy,
+            every driver — designed to protect you.
           </p>
         </div>
 
