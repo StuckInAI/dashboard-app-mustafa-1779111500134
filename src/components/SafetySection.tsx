@@ -4,33 +4,33 @@ import styles from './SafetySection.module.css';
 const safetyFeatures = [
   {
     icon: Shield,
-    title: 'Driver Verification',
-    desc: 'Every driver undergoes rigorous background checks, CNIC verification, and vehicle inspection before joining Khaqan.',
+    title: 'Verified Drivers',
+    desc: 'Every driver undergoes background checks, license verification, and vehicle inspection before joining Khaqan.',
   },
   {
     icon: Eye,
-    title: 'Real-time Tracking',
-    desc: 'Share your live trip with family and friends. Track every second of your journey on the map.',
+    title: 'Live Trip Tracking',
+    desc: 'Share your trip details with family and friends. Track your ride in real-time from pickup to drop-off.',
   },
   {
     icon: Phone,
     title: '24/7 Support',
-    desc: 'Our safety team is available around the clock. One tap to reach emergency services directly from the app.',
+    desc: 'Our safety team is available round the clock. One tap to call emergency services directly from the app.',
   },
   {
     icon: MapPin,
     title: 'Safe Zones',
-    desc: 'Designated pickup and drop-off points in high-traffic areas for added safety and convenience.',
+    desc: 'Designated pickup and drop-off zones in malls, hospitals, and transport hubs for added security.',
   },
   {
     icon: Star,
     title: 'Rating System',
-    desc: 'Two-way ratings keep our community accountable. Drivers with low ratings are removed from the platform.',
+    desc: 'Two-way ratings keep our community accountable. Only the best drivers stay active on the platform.',
   },
   {
     icon: Lock,
     title: 'Secure Payments',
-    desc: 'All in-app transactions are encrypted and secure. Your financial data is never shared with drivers.',
+    desc: 'All in-app payments are encrypted and secure. Your financial data is never shared with drivers.',
   },
 ];
 
@@ -45,7 +45,7 @@ export default function SafetySection() {
             <span className={styles.green}>top priority</span>
           </h2>
           <p className={styles.sub}>
-            We&apos;ve built multiple layers of safety features so you can ride with complete confidence.
+            We&apos;ve built multiple layers of protection so you can ride with complete peace of mind.
           </p>
         </div>
 

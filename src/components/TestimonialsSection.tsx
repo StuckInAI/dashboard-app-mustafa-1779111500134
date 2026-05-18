@@ -1,3 +1,4 @@
+import { Star } from 'lucide-react';
 import styles from './TestimonialsSection.module.css';
 
 const testimonials = [
@@ -5,43 +6,49 @@ const testimonials = [
     name: 'Ayesha Malik',
     city: 'Lahore',
     rating: 5,
-    text: 'Khaqan has completely changed how I commute. The drivers are always on time and super professional. Best ride app in Pakistan!',
-    avatar: 'AM',
+    text: 'Khaqan has completely changed how I commute. The drivers are always on time and the app is so easy to use. Highly recommended!',
+    avatar: '👩',
+    rides: '200+ rides',
   },
   {
-    name: 'Usman Khan',
-    city: 'Islamabad',
-    rating: 5,
-    text: "I've tried every ride app in the country. Khaqan is hands down the most reliable. The prices are fair and the app is so easy to use.",
-    avatar: 'UK',
-  },
-  {
-    name: 'Sara Ahmed',
+    name: 'Hassan Raza',
     city: 'Karachi',
     rating: 5,
-    text: 'As a woman travelling alone, safety is my top priority. Khaqan\'s verified drivers and live tracking give me complete peace of mind.',
-    avatar: 'SA',
+    text: 'Best ride-hailing service in Pakistan. Affordable prices, professional drivers, and real-time tracking. I use it every day.',
+    avatar: '👨',
+    rides: '350+ rides',
   },
   {
-    name: 'Bilal Chaudhry',
+    name: 'Sana Javed',
+    city: 'Islamabad',
+    rating: 5,
+    text: 'As a woman traveling alone, safety is my top concern. Khaqan gives me peace of mind with verified drivers and live tracking.',
+    avatar: '👩‍💼',
+    rides: '150+ rides',
+  },
+  {
+    name: 'Bilal Ahmed',
     city: 'Rawalpindi',
     rating: 5,
-    text: 'The Khaqan Business account saves our company thousands every month. Centralized billing is a game-changer for corporate travel.',
-    avatar: 'BC',
+    text: 'Switched from other apps to Khaqan 6 months ago and never looked back. The customer service is exceptional.',
+    avatar: '🧑',
+    rides: '420+ rides',
   },
   {
-    name: 'Fatima Zahra',
+    name: 'Fatima Khan',
     city: 'Faisalabad',
     rating: 5,
-    text: 'Khaqan Bike is perfect for quick errands. Beats the traffic and costs almost nothing. I use it every single day!',
-    avatar: 'FZ',
+    text: 'Khaqan Bike is a lifesaver during rush hours! Gets me to work in half the time. The pricing is very fair.',
+    avatar: '👩‍🦱',
+    rides: '180+ rides',
   },
   {
-    name: 'Ahmed Raza',
+    name: 'Usman Tariq',
     city: 'Multan',
     rating: 5,
-    text: 'Started driving for Khaqan 6 months ago. The earnings are great and the support team is always helpful. Highly recommend!',
-    avatar: 'AR',
+    text: 'I drive for Khaqan and the earnings are great. The app is driver-friendly and support team is always helpful.',
+    avatar: '👨‍💼',
+    rides: 'Driver - 600+ trips',
   },
 ];
 
@@ -55,7 +62,7 @@ export default function TestimonialsSection() {
             Loved by <span className={styles.green}>millions</span>
           </h2>
           <p className={styles.sub}>
-            Don&apos;t just take our word for it — hear from our community.
+            Don&apos;t just take our word for it. Here&apos;s what our community says.
           </p>
         </div>
 
@@ -63,14 +70,16 @@ export default function TestimonialsSection() {
           {testimonials.map((t) => (
             <div key={t.name} className={styles.card}>
               <div className={styles.stars}>
-                {'★'.repeat(t.rating)}
+                {Array.from({ length: t.rating }).map((_, i) => (
+                  <Star key={i} size={14} fill="#ffc107" stroke="none" />
+                ))}
               </div>
               <p className={styles.text}>&ldquo;{t.text}&rdquo;</p>
               <div className={styles.author}>
-                <div className={styles.avatar}>{t.avatar}</div>
+                <span className={styles.avatar}>{t.avatar}</span>
                 <div>
                   <p className={styles.authorName}>{t.name}</p>
-                  <p className={styles.authorCity}>{t.city}</p>
+                  <p className={styles.authorMeta}>{t.city} &bull; {t.rides}</p>
                 </div>
               </div>
             </div>

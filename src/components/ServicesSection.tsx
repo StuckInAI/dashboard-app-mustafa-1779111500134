@@ -1,53 +1,38 @@
+import { Car, Bike, Package, Truck, ArrowRight } from 'lucide-react';
 import styles from './ServicesSection.module.css';
 
 const services = [
   {
-    emoji: '🚗',
+    icon: Car,
     name: 'Khaqan GO',
-    desc: 'Affordable everyday rides. AC car, professional driver, lowest fares.',
-    price: 'From PKR 280',
-    tag: 'Most Popular',
-    tagColor: '#1dbf73',
+    desc: 'Affordable everyday rides in comfortable sedans. Perfect for daily commutes.',
+    price: 'From PKR 200',
+    color: '#1dbf73',
+    bg: '#e8f8f0',
   },
   {
-    emoji: '🚙',
-    name: 'Khaqan XL',
-    desc: 'Spacious SUV for groups and large luggage. Up to 6 passengers.',
-    price: 'From PKR 420',
-    tag: 'Group Rides',
-    tagColor: '#3b82f6',
-  },
-  {
-    emoji: '🏍️',
+    icon: Bike,
     name: 'Khaqan Bike',
-    desc: 'Beat the traffic with our motorbike service. Fast, cheap, and convenient.',
+    desc: 'Beat the traffic with our fast and economical bike rides across the city.',
     price: 'From PKR 80',
-    tag: 'Fastest',
-    tagColor: '#f59e0b',
+    color: '#3b82f6',
+    bg: '#eff6ff',
   },
   {
-    emoji: '📦',
+    icon: Package,
     name: 'Khaqan Parcel',
-    desc: 'Send packages across the city in hours. Real-time tracking included.',
+    desc: 'Send packages and documents across the city with same-day delivery.',
     price: 'From PKR 150',
-    tag: 'New',
-    tagColor: '#8b5cf6',
+    color: '#f59e0b',
+    bg: '#fffbeb',
   },
   {
-    emoji: '🏢',
-    name: 'Khaqan Business',
-    desc: 'Corporate accounts with centralized billing, reporting and priority support.',
-    price: 'Custom Plans',
-    tag: 'Enterprise',
-    tagColor: '#ef4444',
-  },
-  {
-    emoji: '🚛',
+    icon: Truck,
     name: 'Khaqan Cargo',
-    desc: 'Heavy goods transport for businesses. Pickup trucks and vans available.',
+    desc: 'Move large items and furniture with our fleet of cargo vehicles.',
     price: 'From PKR 800',
-    tag: 'Business',
-    tagColor: '#0d1b2a',
+    color: '#8b5cf6',
+    bg: '#f5f3ff',
   },
 ];
 
@@ -58,30 +43,30 @@ export default function ServicesSection() {
         <div className={styles.header}>
           <span className={styles.badge}>Our Services</span>
           <h2 className={styles.title}>
-            Every ride, every need —{' '}
-            <span className={styles.green}>covered</span>
+            Everything you need,{' '}
+            <span className={styles.green}>one app</span>
           </h2>
           <p className={styles.sub}>
-            From daily commutes to corporate travel, Khaqan has the perfect ride for every occasion.
+            From quick bike rides to cargo deliveries — Khaqan has a solution for every journey.
           </p>
         </div>
+
         <div className={styles.grid}>
-          {services.map((s) => (
-            <div key={s.name} className={styles.card}>
-              <div className={styles.cardTop}>
-                <span className={styles.cardEmoji}>{s.emoji}</span>
-                <span
-                  className={styles.cardTag}
-                  style={{ background: s.tagColor + '18', color: s.tagColor }}
-                >
-                  {s.tag}
-                </span>
+          {services.map((service) => (
+            <div key={service.name} className={styles.card}>
+              <div
+                className={styles.iconWrap}
+                style={{ background: service.bg }}
+              >
+                <service.icon size={26} style={{ color: service.color }} />
               </div>
-              <h3 className={styles.cardName}>{s.name}</h3>
-              <p className={styles.cardDesc}>{s.desc}</p>
+              <h3 className={styles.cardTitle}>{service.name}</h3>
+              <p className={styles.cardDesc}>{service.desc}</p>
               <div className={styles.cardFooter}>
-                <span className={styles.cardPrice}>{s.price}</span>
-                <span className={styles.cardArrow}>→</span>
+                <span className={styles.price}>{service.price}</span>
+                <span className={styles.learnMore}>
+                  Learn more <ArrowRight size={14} />
+                </span>
               </div>
             </div>
           ))}
