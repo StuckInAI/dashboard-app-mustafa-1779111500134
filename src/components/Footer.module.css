@@ -1,0 +1,129 @@
+.footer {
+  background: var(--brand-dark);
+  color: rgba(255,255,255,0.7);
+  padding: 72px 24px 32px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.brand { display: flex; flex-direction: column; gap: 16px; }
+
+.logoRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logoText {
+  font-size: 22px;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -0.5px;
+}
+
+.brandDesc {
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.7;
+  max-width: 260px;
+}
+
+.contactList { display: flex; flex-direction: column; gap: 8px; }
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+}
+
+.contactIcon { color: var(--brand-green); flex-shrink: 0; }
+
+.socials { display: flex; gap: 8px; margin-top: 4px; }
+
+.socialBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.6);
+  transition: background var(--transition), color var(--transition);
+}
+.socialBtn:hover {
+  background: var(--brand-green);
+  color: #fff;
+  border-color: var(--brand-green);
+}
+
+.linkCol { display: flex; flex-direction: column; gap: 10px; }
+
+.colTitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 4px;
+}
+
+.link {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  transition: color var(--transition);
+}
+.link:hover { color: var(--brand-green); }
+
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 28px;
+  flex-wrap: wrap;
+}
+
+.copyright {
+  font-size: 13px;
+  color: rgba(255,255,255,0.35);
+}
+
+.legalLinks {
+  display: flex;
+  gap: 20px;
+}
+
+.legalLinks a {
+  font-size: 13px;
+  color: rgba(255,255,255,0.35);
+  transition: color var(--transition);
+}
+.legalLinks a:hover { color: var(--brand-green); }
+
+@media (max-width: 1000px) {
+  .top {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .brand { grid-column: 1 / -1; }
+}
+@media (max-width: 600px) {
+  .top { grid-template-columns: 1fr 1fr; }
+  .bottom { flex-direction: column; text-align: center; }
+  .footer { padding: 56px 16px 28px; }
+}

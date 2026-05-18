@@ -1,0 +1,179 @@
+.section {
+  padding: 96px 24px;
+  background: var(--brand-bg);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+/* Visual */
+.visual { display: flex; justify-content: center; }
+
+.visualCard {
+  background: var(--brand-dark);
+  border-radius: var(--radius-xl);
+  padding: 32px;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: var(--shadow-xl);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.earningsDemo { display: flex; flex-direction: column; gap: 8px; }
+.earningsLabel { font-size: 13px; color: rgba(255,255,255,0.5); font-weight: 500; }
+.earningsAmount { font-size: 32px; font-weight: 900; color: #fff; letter-spacing: -1px; }
+
+.earningsBar {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 80px;
+  margin-top: 8px;
+}
+
+.bar {
+  flex: 1;
+  background: var(--brand-green);
+  border-radius: 4px 4px 0 0;
+  opacity: 0.85;
+  transition: opacity var(--transition);
+}
+.bar:last-child { opacity: 1; }
+
+.dayLabels {
+  display: flex;
+  gap: 6px;
+  margin-top: 4px;
+}
+.dayLabel {
+  flex: 1;
+  text-align: center;
+  font-size: 11px;
+  color: rgba(255,255,255,0.4);
+  font-weight: 600;
+}
+
+.statsRow {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: rgba(255,255,255,0.05);
+  border-radius: var(--radius-md);
+  padding: 16px;
+}
+.stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+.statVal { font-size: 20px; font-weight: 900; color: #fff; }
+.statKey { font-size: 11px; color: rgba(255,255,255,0.4); font-weight: 500; }
+.statDiv { width: 1px; height: 32px; background: rgba(255,255,255,0.1); }
+
+.driverBadge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(29,191,115,0.15);
+  border: 1px solid rgba(29,191,115,0.3);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #5de0a0;
+}
+
+/* Content */
+.content { display: flex; flex-direction: column; gap: 24px; }
+
+.badge {
+  display: inline-block;
+  background: var(--brand-green-light);
+  color: var(--brand-green-dark);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 5px 14px;
+  border-radius: 99px;
+  width: fit-content;
+}
+
+.title {
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 900;
+  color: var(--brand-dark);
+  line-height: 1.15;
+  letter-spacing: -1px;
+}
+.green { color: var(--brand-green); }
+
+.sub {
+  font-size: 16px;
+  color: var(--brand-gray);
+  line-height: 1.7;
+}
+
+.perks { display: flex; flex-direction: column; gap: 16px; }
+
+.perk {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.perkIcon {
+  width: 40px;
+  height: 40px;
+  background: var(--brand-green-light);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand-green);
+  flex-shrink: 0;
+}
+
+.perkTitle { font-size: 15px; font-weight: 800; color: var(--brand-dark); margin-bottom: 3px; }
+.perkDesc { font-size: 13px; color: var(--brand-gray); line-height: 1.6; }
+
+.ctaRow { display: flex; flex-direction: column; gap: 10px; }
+
+.btnDrive {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--brand-green);
+  color: #fff;
+  padding: 14px 30px;
+  border-radius: var(--radius-full);
+  font-size: 15px;
+  font-weight: 700;
+  width: fit-content;
+  transition: background var(--transition), transform var(--transition);
+  box-shadow: 0 4px 20px rgba(29,191,115,0.35);
+}
+.btnDrive:hover {
+  background: var(--brand-green-dark);
+  transform: translateY(-2px);
+}
+
+.ctaNote { font-size: 13px; color: var(--brand-gray-light); }
+
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .section { padding: 64px 16px; }
+}

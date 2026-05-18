@@ -1,0 +1,201 @@
+.section {
+  padding: 100px 24px;
+  background: var(--brand-dark);
+  overflow: hidden;
+  position: relative;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(29,191,115,0.15);
+  color: #5de0a0;
+  border: 1px solid rgba(29,191,115,0.25);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 5px 14px;
+  border-radius: 99px;
+  width: fit-content;
+}
+
+.title {
+  font-size: clamp(30px, 4vw, 46px);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.15;
+  letter-spacing: -1px;
+}
+.green { color: var(--brand-green); }
+
+.sub {
+  font-size: 17px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.7;
+  max-width: 420px;
+}
+
+.storeButtons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.storeBtn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255,255,255,0.07);
+  border: 1.5px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius-md);
+  padding: 13px 20px;
+  transition: background var(--transition), border-color var(--transition), transform var(--transition);
+}
+.storeBtn:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: var(--brand-green);
+  transform: translateY(-2px);
+}
+
+.storeIcon { font-size: 26px; }
+
+.storeText { display: flex; flex-direction: column; }
+.storeLabel { font-size: 11px; color: rgba(255,255,255,0.5); font-weight: 500; }
+.storeName { font-size: 17px; font-weight: 800; color: #fff; }
+
+.appStats {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.appStat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.appStatNum {
+  font-size: 28px;
+  font-weight: 900;
+  color: #fff;
+}
+
+.stars { color: #ffc107; font-size: 13px; margin-bottom: 2px; }
+.appStatLabel { font-size: 12px; color: rgba(255,255,255,0.45); font-weight: 500; }
+.appStatDiv { width: 1px; height: 36px; background: rgba(255,255,255,0.12); }
+
+/* Phone Group */
+.phoneGroup {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 460px;
+}
+
+.phoneMain {
+  width: 230px;
+  height: 460px;
+  background: #1a1a2e;
+  border-radius: 36px;
+  padding: 10px;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.06);
+  position: relative;
+  z-index: 2;
+}
+
+.phoneInner {
+  width: 100%;
+  height: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #f0f9f4;
+  display: flex;
+  flex-direction: column;
+}
+
+.appScreen { display: flex; flex-direction: column; height: 100%; }
+
+.appHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 16px 8px;
+  background: #fff;
+}
+.logoSmall { font-size: 18px; }
+.appName { font-size: 15px; font-weight: 800; color: var(--brand-dark); }
+
+.mapArea { flex: 1; overflow: hidden; }
+
+.bookingBar {
+  background: #fff;
+  padding: 12px;
+  border-top: 1px solid var(--brand-border);
+}
+
+.bookingInput {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--brand-bg);
+  border: 1.5px solid var(--brand-border);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--brand-gray);
+  font-weight: 500;
+}
+
+.circle1 {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  border: 1px solid rgba(29,191,115,0.12);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.circle2 {
+  position: absolute;
+  width: 440px;
+  height: 440px;
+  border-radius: 50%;
+  border: 1px solid rgba(29,191,115,0.06);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    text-align: center;
+  }
+  .badge { margin: 0 auto; }
+  .storeButtons { justify-content: center; }
+  .appStats { justify-content: center; }
+  .phoneGroup { height: 380px; }
+  .phoneMain { width: 190px; height: 380px; }
+  .section { padding: 64px 16px; }
+}
