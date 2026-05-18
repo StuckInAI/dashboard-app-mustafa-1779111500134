@@ -1,111 +1,143 @@
 import { useState } from 'react';
-import { Search, UserPlus } from 'lucide-react';
-import styles from './UsersPage.module.css';
+import { Mail, Phone, MoreVertical } from 'lucide-react';
+import Card from '@/components/ui/Card';
 import Badge from '@/components/ui/Badge';
-import { users as initialUsers } from '@/lib/mockData';
-import type { User } from '@/types';
+import styles from './UsersPage.module.css';
+
+type TeamMember = {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  role: string;
+  department: string;
+  status: 'active' | 'invited' | 'inactive';
+  avatar: string;
+  initialsBg: string;
+};
+
+const INITIAL_USERS: TeamMember[] = [
+  {
+    id: 'u1',
+    name: 'Sarah Park',
+    email: 'sarah.park@hireflow.app',
+    phone: '+1 (415) 555-0142',
+    role: 'Admin',
+    department: 'Recruiting',
+    status: 'active',
+    avatar: 'SP',
+    initialsBg: 'var(--gradient-purple)',
+  },
+  {
+    id: 'u2',
+    name: 'Marcus Lee',
+    email: 'marcus.lee@hireflow.app',
+    phone: '+1 (628) 555-0178',
+    role: 'Recruiter',
+    department: 'Recruiting',
+    status: 'active',
+    avatar: 'ML',
+    initialsBg: 'var(--gradient-blue)',
+  },
+  {
+    id: 'u3',
+    name: 'Priya Nair',
+    email: 'priya.nair@hireflow.app',
+    phone: '+1 (510) 555-0193',
+    role: 'Hiring Manager',
+    department: 'Engineering',
+    status: 'active',
+    avatar: 'PN',
+    initialsBg: 'linear-gradient(135deg, #3ecf8e 0%, #4f8ef7 100%)',
+  },
+  {
+    id: 'u4',
+    name: 'Diego Alvarez',
+    email: 'diego.alvarez@hireflow.app',
+    phone: '+1 (650) 555-0104',
+    role: 'Interviewer',
+    department: 'Design',
+    status: 'invited',
+    avatar: 'DA',
+    initialsBg: 'linear-gradient(135deg, #f79c4f 0%, #f75f5f 100%)',
+  },
+  {
+    id: 'u5',
+    name: 'Hannah Chen',
+    email: 'hannah.chen@hireflow.app',
+    phone: '+1 (415) 555-0167',
+    role: 'Recruiter',
+    department: 'Recruiting',
+    status: 'inactive',
+    avatar: 'HC',
+    initialsBg: 'linear-gradient(135deg, #9b6bf2 0%, #f75f5f 100%)',
+  },
+];
+
+const STATUS_VARIANT: Record<TeamMember['status'], 'success' | 'warning' | 'neutral'> = {
+  active: 'success',
+  invited: 'warning',
+  inactive: 'neutral',
+};
 
 export default function UsersPage() {
-  const [users] = useState<User[]>(initialUsers);
-  const [search, setSearch] = useState('');
-  const [filter, setFilter] = useState<'all' | 'active' | 'inactive' | 'pending'>('all');
-
-  const filtered = users.filter((u) => {
-    const matchSearch =
-      u.name.toLowerCase().includes(search.toLowerCase()) ||
-      u.email.toLowerCase().includes(search.toLowerCase());
-    const matchFilter = filter === 'all' || u.status === filter;
-    return matchSearch && matchFilter;
-  });
-
-  const statusVariant = (status: User['status']) => {
-    if (status === 'active') return 'success';
-    if (status === 'inactive') return 'neutral';
-    return 'warning';
-  };
+  const [users] = useState<TeamMember[]>(INITIAL_USERS);
 
   return (
     <div className={styles.page}>
-      {/* Toolbar */}
-      <div className={styles.toolbar}>
-        <div className={styles.searchBox}>
-          <Search size={15} className={styles.searchIcon} />
-          <input
-            type="text"
-            placeholder="Search users..."
-            value={search}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearch(e.target.value)}
-            className={styles.searchInput}
-          />
-        </div>
-        <div className={styles.filters}>
-          {(['all', 'active', 'inactive', 'pending'] as const).map((f) => (
-            <button
-              key={f}
-              className={[styles.filterBtn, filter === f ? styles.filterActive : ''].join(' ')}
-              onClick={() => setFilter(f)}
-            >
-              {f.charAt(0).toUpperCase() + f.slice(1)}
-            </button>
-          ))}
-        </div>
-        <button className={styles.addBtn}>
-          <UserPlus size={15} />
-          <span>Add User</span>
-        </button>
-      </div>
-
-      {/* Table */}
-      <div className={styles.tableWrapper}>
-        <table className={styles.table}>
-          <thead>
-            <tr>
-              <th>User</th>
-              <th>Role</th>
-              <th>Status</th>
-              <th>Joined</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filtered.map((user) => (
-              <tr key={user.id}>
-                <td>
-                  <div className={styles.userCell}>
-                    <div className={styles.avatar}>{user.avatar}</div>
-                    <div>
-                      <p className={styles.userName}>{user.name}</p>
-                      <p className={styles.userEmail}>{user.email}</p>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <span className={styles.role}>{user.role}</span>
-                </td>
-                <td>
-                  <Badge variant={statusVariant(user.status)}>{user.status}</Badge>
-                </td>
-                <td>
-                  <span className={styles.joined}>{user.joined}</span>
-                </td>
-                <td>
-                  <div className={styles.actions}>
-                    <button className={styles.actionBtn}>Edit</button>
-                    <button className={[styles.actionBtn, styles.actionBtnDanger].join(' ')}>Remove</button>
-                  </div>
-                </td>
+      <Card title="Team Members" subtitle="Manage workspace access and roles">
+        <div className={styles.tableWrapper}>
+          <table className={styles.table}>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Contact</th>
+                <th>Role</th>
+                <th>Department</th>
+                <th>Status</th>
+                <th></th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-        {filtered.length === 0 && (
-          <div className={styles.empty}>No users found</div>
-        )}
-      </div>
-
-      <p className={styles.count}>
-        Showing {filtered.length} of {users.length} users
-      </p>
+            </thead>
+            <tbody>
+              {users.map((u) => (
+                <tr key={u.id}>
+                  <td>
+                    <div className={styles.userCell}>
+                      <div className={styles.avatar} style={{ background: u.initialsBg }}>
+                        {u.avatar}
+                      </div>
+                      <div>
+                        <div className={styles.userName}>{u.name}</div>
+                        <div className={styles.userMeta}>{u.email}</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div className={styles.contact}>
+                      <span className={styles.contactItem}>
+                        <Mail size={13} /> {u.email}
+                      </span>
+                      <span className={styles.contactItem}>
+                        <Phone size={13} /> {u.phone}
+                      </span>
+                    </div>
+                  </td>
+                  <td className={styles.role}>{u.role}</td>
+                  <td className={styles.department}>{u.department}</td>
+                  <td>
+                    <Badge variant={STATUS_VARIANT[u.status]}>{u.status}</Badge>
+                  </td>
+                  <td>
+                    <button className={styles.iconBtn} aria-label="More">
+                      <MoreVertical size={16} />
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </Card>
     </div>
   );
 }

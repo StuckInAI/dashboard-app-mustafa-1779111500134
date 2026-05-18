@@ -1,48 +1,38 @@
-import styles from './OverviewPage.module.css';
+import Card from '@/components/ui/Card';
 import StatCard from '@/components/ui/StatCard';
 import ActivityFeed from '@/components/ui/ActivityFeed';
 import BarChart from '@/components/ui/BarChart';
 import DonutChart from '@/components/ui/DonutChart';
-import Card from '@/components/ui/Card';
-import { statCards, recentActivity, revenueChartData, trafficSources } from '@/lib/mockData';
+import { statCards, recentActivity, chartData, sourceData } from '@/lib/mockData';
+import styles from './OverviewPage.module.css';
 
 export default function OverviewPage() {
   return (
     <div className={styles.page}>
-      {/* Stat Cards */}
       <div className={styles.statsGrid}>
-        {statCards.map((card) => (
-          <StatCard key={card.id} data={card} />
+        {statCards.map((stat) => (
+          <StatCard key={stat.id} {...stat} />
         ))}
       </div>
 
-      {/* Charts Row */}
       <div className={styles.chartsRow}>
         <Card
-          title="Revenue Overview"
-          subtitle="Monthly revenue vs target"
-          className={styles.revenueCard}
-          action={
-            <div className={styles.chartLegend}>
-              <span className={styles.legendItem}>
-                <span className={styles.dotBlue} /> Revenue
-              </span>
-              <span className={styles.legendItem}>
-                <span className={styles.dotFaded} /> Target
-              </span>
-            </div>
-          }
+          title="Hiring Trend"
+          subtitle="Applications vs hires over the last 7 periods"
+          className={styles.chartCard}
         >
-          <BarChart data={revenueChartData} height={200} />
+          <BarChart data={chartData} height={220} />
         </Card>
-
-        <Card title="Traffic Sources" subtitle="Breakdown by channel" className={styles.trafficCard}>
-          <DonutChart data={trafficSources} />
+        <Card
+          title="Candidate Sources"
+          subtitle="Where applicants are coming from"
+          className={styles.donutCard}
+        >
+          <DonutChart data={sourceData} />
         </Card>
       </div>
 
-      {/* Recent Activity */}
-      <Card title="Recent Activity" subtitle="Latest actions across your platform">
+      <Card title="Recent Activity" subtitle="Latest updates from your team">
         <ActivityFeed items={recentActivity} />
       </Card>
     </div>
